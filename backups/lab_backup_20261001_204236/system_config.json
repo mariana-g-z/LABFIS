@@ -1,0 +1,15 @@
+{
+  "file_config": {
+    "personas_path": "/Users/uni/Desktop/ss lab/data/personas.xlsx",
+    "materiales_path": "/Users/uni/Desktop/ss lab/data/materiales.xlsx",
+    "prestamos_path": "/Users/uni/Desktop/ss lab/data/prestamos.xlsx",
+    "bajas_path": "/Users/uni/Desktop/ss lab/data/bajas.xlsx"
+  },
+  "backup_config": {
+    "auto_backup": true,
+    "frequency": "Diario",
+    "backup_path": "",
+    "last_backup": null
+  },
+  "saved_at": "2026-10-01T20:42:33.715356"
+}
