@@ -135,41 +135,16 @@ class CardWidget(QFrame):
 
 
 class LabTable(QTableWidget):
-    # Ordenados de más específico a más general para que el match largo gane
     _ICONS = {
-       "ver historial": "🗒",
-        "historial":     "🗒",
-        "ver detalle":   "⌕",
-        "detalle":       "⌕",
-        "desactivar":    "⛔",
-        "dar de baja":   "⛔",
-        "activar":       "✔",
-        "reactivar":     "✔",
-        "reabastecer":   "▣",
-        "reset pw":      "⚿",
-        "resetear":      "⟳",
-        "restablecer":   "⟳",
-        "editar":        "✎",
-        "devolver":      "↩",
-        "eliminar":      "✕",
-        "exportar":      "↓",
-        "crear":         "＋",
-        "ver":           "⌕"
+        "historial":"☰","ver":"◉","editar":"✎","activar":"✓",
+        "desactivar":"⊘","eliminar":"✕","devolver":"↩","resetear":"↺",
+        "restablecer":"↺","exportar":"⬇","crear":"+","detalle":"◉",
     }
     _TIPS = {
-        "ver historial": "Ver Historial", "historial":    "Ver Historial",
-        "ver detalle":   "Ver Detalle",   "detalle":      "Ver Detalle",
-        "desactivar":    "Desactivar",    "dar de baja":  "Dar de Baja",
-        "activar":       "Activar",       "reactivar":    "Reactivar",
-        "reabastecer":   "Reabastecer",
-        "reset pw":      "Resetear Contraseña",
-        "resetear":      "Resetear",      "restablecer":  "Restablecer",
-        "editar":        "Editar",
-        "devolver":      "Devolver",
-        "eliminar":      "Eliminar",
-        "exportar":      "Exportar",
-        "crear":         "Crear",
-        "ver":           "Ver Detalle",
+        "historial":"Ver Historial","ver":"Ver Detalle","editar":"Editar",
+        "activar":"Activar","desactivar":"Desactivar","eliminar":"Eliminar",
+        "devolver":"Devolver","resetear":"Resetear","restablecer":"Restablecer",
+        "exportar":"Exportar","crear":"Crear","detalle":"Ver Detalle",
     }
 
     def __init__(self, columns):
@@ -197,8 +172,6 @@ class LabTable(QTableWidget):
                 padding:10px 16px;border:none;border-bottom:2px solid {C['border']};
                 border-right:1px solid {C['border']};}}
             QHeaderView::section:last{{border-right:none;}}
-            QTableWidget QWidget {{ background: white; border: none; }}
-            QTableWidget QPushButton {{ padding: 0; }}
         """)
 
     def set_badge_item(self, row, col, text):
@@ -234,7 +207,7 @@ class LabTable(QTableWidget):
                 f"color:{C['blue_fg']};border-radius:6px;font-size:14px;font-weight:600;}}"
                 f"QPushButton:hover{{background:{C['blue_fg']};color:white;}}"
             )
-            if cb: b.clicked.connect(lambda checked=False, _cb=cb: _cb())
+            if cb: b.clicked.connect(cb)
             lay.addWidget(b)
         lay.addStretch()
         self.setCellWidget(row, col, w)
